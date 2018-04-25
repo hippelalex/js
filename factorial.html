@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS</title>
+  <meta charset="utf-8">
+</head>
+  <body>
+    <script src="main.js"></script>
+    <script>
+
+// Вычисление факториала c помощью цикла
+
+  var n = prompt('Введите число', '0');
+    document.write(("Вы ввели число ") + n);
+    var factorial = 1;
+    for (i = 1; i <= n; i++) {factorial = factorial * i;}
+    document.write(("  Факториал этого числа = ") + factorial);
+
+
+// Вычисление факториала числа с помощью функции.
+// не совсем понял эту функцию...
+    //
+    // function factorial(n) {
+    //   return (n != 1) ? n * factorial(n - 1) : 1;
+    // }
+    //   alert( factorial(prompt('Введите число', '1')) );
+
+
+
+
+// решение от Виталия.
+
+// var x = parseInt(prompt("Введите число:"));
+// function factorial() {
+//        if(x === 0) {
+//            return 1;
+//        }
+//        if(x < 0 ) {
+//            return undefined;
+//        }
+//        for(var i = x; --i; ) {
+//          x *= i;
+//        }
+//        return x;
+// }
+// // console.log(factorial(x));
+//   document.write(factorial(x));
+
+    </script>
+
+  </body>
+
+</html>
