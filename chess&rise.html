@@ -20,15 +20,16 @@ for(var i = 1; i <= n; i++){
 
 }
 // Выводим количество рисинок
-console.log('counts:',rise);
+console.log('Количество рисинок на доске:',rise);
 
 // расчитываем вес риса
-weight_rise = rise * weight / ;
-console.log('weights',weight_rise);
-
+weight_rise = rise * weight;
+console.log('Общий вес риса в граммах',weight_rise);
+console.log('Общий вес риса в тоннах',weight_rise / 1000000);
 //расчитываем соимость риса из расчета $1 за 1 грамм
 price_rise = price * weight_rise;
-console.log('summary all rises', price_rise);
+console.log('Стоимость риса в $ при цене 1гр=$1', price_rise);
+console.log('Стоимость риса в млн $ при цене 1гр=$1', price_rise / 1000000);
 
 
     </script>
