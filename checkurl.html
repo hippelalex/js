@@ -5,11 +5,19 @@
   <meta charset="utf-8">
 </head>
   <body>
-    <script src="main.js"></script>
+    <!-- <script src="main.js"></script> -->
     <script>
 
-      var str = ('http://mydomain.com/contacts.html');
-        console.log(str.charAt(4);
+      var url = ('https://mydomain.com/contacts.html');
+        if (url[4] == 's') {
+            // alert('Ваше подключение к странице') + url;
+            console.log('Защищено!');
+        }
+        else {
+          // alert ('Ваше подключение к странице') + url (" НЕ защищено! Проверьте правильность введенного адреса!")
+            console.log(' НЕ Защищено!');
+        }
+
 
       // var arr = ['http:/', 'mydomain.com', 'mypage.html','#someanchor'];
       //   console.log(arr.join('/'));
