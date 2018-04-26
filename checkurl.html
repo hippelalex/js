@@ -8,14 +8,14 @@
     <!-- <script src="main.js"></script> -->
     <script>
 
-      var url = ('https://mydomain.com/contacts.html');
+      var url = prompt('Введите адрес','https://mydomain.com/contacts.html');
         if (url[4] == 's') {
-            // alert('Ваше подключение к странице') + url;
+            alert('Ваше подключение к странице ' + url + ' ЗАЩИЩЕНО!' );
             console.log('Защищено!');
         }
         else {
-          // alert ('Ваше подключение к странице') + url (" НЕ защищено! Проверьте правильность введенного адреса!")
-            console.log(' НЕ Защищено!');
+          alert ('Ваше подключение к странице ' + url + ' НЕ ЗАЩИЩЕНО! Проверьте правильность введенного адреса!')
+            console.log('НЕ Защищено!');
         }
 
 
