@@ -7,12 +7,17 @@
   <body>
 
     <script>
-//конвертировать в Hello-World
+              //конвертировать в Hello-World
 
       var str = prompt('Введите строку', 'hello world');
-
-
-      </script>
+      var repl1 = str.replace(/h/g, 'H');
+        console.log(repl1);
+      var repl2 = repl1.replace(/w/g, 'W');
+        console.log(repl2);
+      var repl3 = repl2.replace(/ /g, '-');
+        console.log(repl3);
+        alert(repl3);
+    </script>
 
   </body>
 
