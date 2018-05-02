@@ -52,20 +52,39 @@
       var n = prompt('Введите число для расчета факториала: ', 5)
 
         function factorial(n) {
-          return (n != 1) ? n * factorial(n - 1) : 1;
+          //return (n != 1) ? n * factorial(n - 1) : 1;
+          if (n != 1) {
+            return (n * factorial(n - 1));
+          }
+          else {
+          return n == 1;
+          }
         }
         document.write('Факториал числа ' + n +' равен: ' + factorial(n));
     </script>
 
     <h2>3. Счетчик (counter) функция.</h2>
         <script>
+        //var counter = function(n){ -->
+      // 		return (n==1) ? 1 : n;
+      // 	}
+      // 	alert('Функция counter (без использования рекурсии)');
+      // 	var number=+prompt('Введите число для расчета:');
+      // 	var i=1;
+      // 	var sum=counter(i);
+      // 	while (i<number) {
+      // 		i++;
+      // 		sum=sum + counter(i);
 
+      // 	}
+      // 	console.log('counter has value =',  sum);
         </script>
 
     <h2>4. Функция расчета квадратного корня.</h2>
             <script>
 
             </script>
+
 
   </body>
 
