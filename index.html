@@ -8,15 +8,31 @@
 
     <script>
 
-    var age = prompt('возраст?', 18);
+    var user = {
+      name: 'John',
+      lastname: 'Doe',
+      age: 18
+    }
+    console.log(user.name);
+    console.log(user.lastname);
+    user.age =18;
+    console.log(user.age);
+    user.city = 'Kh';
+    console.log(user);
 
-  var message = (age < 3) ? 'Здравствуй, малыш!' :
-  (age < 18) ? 'Привет!' :
-  (age < 100) ? 'Здравствуйте!' :
-  'Какой необычный возраст!';
-  
+    for (var prop in user) {
+      console.log(prop + ' = ' + user[prop]);
+    }
 
-  alert( message );
+  //   var age = prompt('возраст?', 18);
+  //
+  // var message = (age < 3) ? 'Здравствуй, малыш!' :
+  // (age < 18) ? 'Привет!' :
+  // (age < 100) ? 'Здравствуйте!' :
+  // 'Какой необычный возраст!';
+  //
+  //
+  // alert( message );
     // var message = 'Hello';
     // function greeting(name){
     //   console.log(message + ' ' + name);
