@@ -6,24 +6,22 @@
   </head>
   <body>
     <script>
+    var a = 1, b = 1;
 
     var n = prompt('Введите предел вычисления числа Фибоначчи: ', 11);
     document.write( 'Число Фибоначчи до ' + (n) +' равно: ' +  fib(n) );
-
-    var a = 1, b = 1;
-
 
       function fib(n) {
 
         for (var i = 3; i <= n; i++) {
           var c = a + b;
+          a = b;
+          b = c;
           console.log(c);
-            a = b;
-            b = c;
         }
         return b;
     }
-    console.log(n);
+
     </script>
   </body>
 </html>

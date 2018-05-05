@@ -8,21 +8,29 @@
 
     <script>
 
-    var user = {
-      name: 'John',
-      lastname: 'Doe',
-      age: 18
-    }
-    console.log(user.name);
-    console.log(user.lastname);
-    user.age =18;
-    console.log(user.age);
-    user.city = 'Kh';
-    console.log(user);
+    let q = (m) => {
+    const quaters = ["Первая","Вторая","Третья","Четвертая"];
+    return quaters[~~(m/15)];
+    };
+    console.log(m);
 
-    for (var prop in user) {
-      console.log(prop + ' = ' + user[prop]);
-    }
+
+    //
+    // var user = {
+    //   name: 'John',
+    //   lastname: 'Doe',
+    //   age: 18
+    // }
+    // console.log(user.name);
+    // console.log(user.lastname);
+    // user.age =18;
+    // console.log(user.age);
+    // user.city = 'Kh';
+    // console.log(user);
+    //
+    // for (var prop in user) {
+    //   console.log(prop + ' = ' + user[prop]);
+    //}
 
   //   var age = prompt('возраст?', 18);
   //
