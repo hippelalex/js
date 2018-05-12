@@ -11,3 +11,9 @@
 
 1. 11-e число Фибоначчи на замыканиях
 2.Читаем замыкания на learn.js.ru и htmlacademy.ru
+
+12.05.18
+1. переписать кофемашину на прототипах
+2. часы http://learn.javascript.ru/task/clock-class
+3. расширенные часы http://learn.javascript.ru/task/clock-class-extended
+4.* Создать свой instansof на for или while

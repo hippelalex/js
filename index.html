@@ -8,14 +8,37 @@
 
     <script>
 
-    var a = prompt('Enter a number', a)
+    'use strict';
+      function CoffeeMachine(power) {
+        this.waterAmount = 0;
 
-    if (a%2 == 0 && a%5 == 0) {
-      console.log('true');
-    }
-    else {
-      console.log('false');
-    }
+        var WATER_HEAT_CAPACITY = 4200;
+
+        var self = this;
+        var timerId
+
+        function getBoilTime() {
+          return self.waterAmount * WATER_HEAT_CAPACITY * 80 / power;
+        }
+
+        function onReady() {
+          alert( 'Кофе готово!' );
+        }
+
+        this.run = function() {
+          setTimeout(onReady, getBoilTime());
+        };
+
+      }
+
+    // var a = prompt('Enter a number', a)
+    //
+    // if (a%2 == 0 && a%5 == 0) {
+    //   console.log('true');
+    // }
+    // else {
+    //   console.log('false');
+    // }
 
 
     // var array = {
