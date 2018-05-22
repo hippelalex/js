@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tanks</title>
+  <meta charset="utf-8">
+</head>
+  <body>
+
+    <script>
+    class Tank {
+    	moveTo(x, y) {
+
+    	}
+
+      fireTo() {
+		if (this._canFire()) {
+			this.ammunition = 	this.ammunition - 1;
+		}
+	}
+
+	 _canFire(ammunition) {
+		if (ammunition > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	 }
+  }
+
+
+    var tank = new Tank; //в переменной tank теперь объект класса Tank
+
+    tank.moveTo(10, 20); //командуем перемещение
+
+    var tank1 = new Tank; //создаем первый танк
+    tank1.moveTo(10, 10); //командуем перемещение в точку 10, 10
+
+    var tank2 = new Tank; //создаем второй танк
+    tank2.fireTo(10, 10); //командуем выстрел в местонахождение первого
+
+    var tank = new Tank;
+    tank.ammunition = 10;
+    alert(tank.ammunition); //выведет '10'
+
+    tank.fireTo(10, 20); //скомандуем выстрел
+    alert(tank.ammunition); //выведет '9'
+
+    tank.fireTo(10, 20); //скомандуем выстрел
+    alert(tank.ammunition); //выведет '8'
+    </script>
+
+  </body>
+
+</html>

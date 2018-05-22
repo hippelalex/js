@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS</title>
+  <meta charset="utf-8">
+</head>
+  <body>
+
+    <script>
+
+    // worker: name, lastname, rate, hour, getSalary
+
+      function Worker(name, lastname, rate){
+        this.name = name;
+        this.lastname = lastname;
+        this._rate = rate;
+
+        this.getRate = function(){
+          return this._rate;
+        }
+        this.setRate = function(r){
+          this._rate = r;
+        }
+
+        this.getSalary = function(h) {
+          return h * this._rate;
+
+        }
+      }
+
+      var worker = new Worker ('John', 'Doe', 20);
+      console.log(worker.getSalary(160));
+      console.log(worker.getRate());
+      worker.setRate(25);
+      console.log(worker.getSalary(10));
+//     
+      </script>
+
+  </body>
+
+</html>

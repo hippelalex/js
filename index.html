@@ -8,39 +8,140 @@
 
     <script>
 
-    /************** Clock*********/
-    function Clock(options) {
-  this._template = options.template;
-}
+    // for (i=1; i<10; i++)
+    //   for (j=1; j<10; j++)
+    //   log("<p>"+i+"*"+j+" = "+(i*j)+"</p>");
 
-Clock.prototype._render = function() {
-  var date = new Date();
+    var table, row, cell, i, j;
+05
+        table = document.createElement('table');
+06
+        table.style.textAlign = 'right';
+07
+        table.style.fontFamily = 'monospace';
+08
+        for (i=1; i<10; i++) {
+09
+            row = document.createElement('tr');
+10
+            for (j=1; j<10; j++) {
+11
+                cell = document.createElement(i == 1 || j == 1 ? 'th' : 'td');
+12
+                cell.appendChild(document.createTextNode(i*j));
+13
+                cell.style.padding = '4px';
+14
+                cell.style.width = 100 / 9 + '%';
+15
+                row.appendChild(cell);
+16
+            }
+17
+            table.appendChild(row);
+18
+        }
+19
+        document.body.appendChild(table);
 
-  var hours = date.getHours();
-  if (hours < 10) hours = '0' + hours;
 
-  var min = date.getMinutes();
-  if (min < 10) min = '0' + min;
 
-  var sec = date.getSeconds();
-  if (sec < 10) sec = '0' + sec;
 
-  var output = this._template.replace('h', hours).replace('m', min).replace('s', sec);
 
-  console.log(output);
-};
 
-Clock.prototype.stop = function() {
-  clearInterval(this._timer);
-};
 
-Clock.prototype.start = function() {
-  this._render();
-  var self = this;
-  this._timer = setInterval(function() {
-    self._render();
-  }, 1000);
-};
+    // var arr = [1,2,3,4,5,6,7,8];
+
+
+
+
+
+      // var res = 0;
+      //
+      //   for (var i = 0; i < arr.length; i++) {
+      //     array[i]
+      //   }
+      //
+      //   var arr = [2, -3, 5, -8, 4, -1, 10, 12];
+      //
+      //   var arr2 = arr.filter(function(x))
+
+    // var obj  = {
+    //   green: 'зеленый',
+    //   blue:  'синий',
+    //   red: 'красный'
+    // };
+    //
+    // function fund(arg) = {
+    //   if (obg.arg == undefined){
+    //     console.error('нет такого значения');
+    //     }
+    // }
+
+
+
+
+
+
+
+    // // worker: name, lastname, rate, hour, getSalary
+    //
+    //   function Worker(name, lastname, rate){
+    //     this.name = name;
+    //     this.lastname = lastname;
+    //     this._rate = rate;
+    //
+    //     this.getRate = function(){
+    //       return this._rate;
+    //     }
+    //     this.setRate = function(r){
+    //       this._rate = r;
+    //     }
+    //
+    //     this.getSalary = function(h) {
+    //       return h * this._rate;
+    //
+    //     }
+    //   }
+    //
+    //   var worker = new Worker ('John', 'Doe', 20);
+    //   console.log(worker.getSalary(160));
+    //   console.log(worker.getRate());
+    //   worker.setRate(25);
+    //   console.log(worker.getSalary(10));
+//     /************** Clock*********/
+//     function Clock(options) {
+//   this._template = options.template;
+// }
+//
+// Clock.prototype._render = function() {
+//   var date = new Date();
+//
+//   var hours = date.getHours();
+//   if (hours < 10) hours = '0' + hours;
+//
+//   var min = date.getMinutes();
+//   if (min < 10) min = '0' + min;
+//
+//   var sec = date.getSeconds();
+//   if (sec < 10) sec = '0' + sec;
+//
+//   var output = this._template.replace('h', hours).replace('m', min).replace('s', sec);
+//
+//   console.log(output);
+// };
+//
+// Clock.prototype.stop = function() {
+//   clearInterval(this._timer);
+// };
+//
+// Clock.prototype.start = function() {
+//   this._render();
+//   var self = this;
+//   this._timer = setInterval(function() {
+//     self._render();
+//   }, 1000);
+// };
 
     /**********************coffeeMachine***********/
 
