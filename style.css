@@ -1,0 +1,47 @@
+#menubtn{
+display: block;
+position: absolute;
+top: 40px;
+right: 40px;
+width: 20px;
+height: 20px;
+cursor: pointer;
+}
+
+#menubtn span{
+position: absolute;
+background-color: black;
+height: 2px;
+width: 100%;
+left: 0;
+
+}
+#menubtn span:first-of-type{
+top: 0;
+}
+#menubtn span:nth-of-type(2){
+top: 9px;
+}
+#menubtn span:last-of-type{
+bottom: 0;
+}
+
+.menu{
+list-style: none;
+display: none;
+}
+.menu.opened{
+display: block;
+}
+.menu li{
+display: inline-block;
+font-size: 22px;
+color: #333;
+margin-right: 30px;
+text-transform: uppercase;
+}
+
+a{
+color: inherit;
+text-decoration: none;
+}
