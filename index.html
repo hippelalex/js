@@ -8,6 +8,7 @@
 
     <script>
 
+<<<<<<< HEAD
     function randomNum() {
       var num =
     }
@@ -99,6 +100,24 @@
     //   worker.setRate(25);
     //   console.log(worker.getSalary(10));
 //     /************** Clock*********/
+=======
+    function makeAdder(x) {
+      return function ( y ) {
+        return x + y;
+      };
+    };
+
+    var add5 = makeAdder(5);
+    console.log(add5);
+    var add10 = makeAdder(10);
+    console.log(add10);
+
+    console.log(add5(5));
+    // console.log(add5(2));  // 7
+    // console.log(add10(2)); // 12
+
+    /************** Clock*********/
+>>>>>>> b2cec9cee6bb466af0d39b515a09171359ed6f1a
 //     function Clock(options) {
 //   this._template = options.template;
 // }
