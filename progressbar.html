@@ -1,0 +1,59 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width; initial-scale=1;">
+	<!-- <link rel="stylesheet" href="css/all.css" type="text/css"/> -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<title>To do list</title>
+	<style>
+
+		.progressbar{
+			height: 16px;
+			width: 200px;
+			background-color:  #e2e2e2;
+		}
+		.progress{
+			height: 100%;
+			width: 0%;
+			background-color:  #000000;
+		}
+	</style>
+</head>
+<body>
+
+
+
+<div class="progressbar" data-value='70'>
+	<div class="progress"></div>
+	<span>0%</span>
+</div>
+
+<script>
+
+var progressbar = document.getElementsByClassName('progressbar')[0];
+var progress = document.getElementsByClassName('progress')[0];
+var span = document.getElementsByTagName('span')[0];
+var currentprogress = 0;
+var value = progressbar.getAttribute('data-value');
+var interval = setInterval(function(){
+ animateProgress();
+}, 20);
+function animateProgress(){
+
+	if(currentprogress <= value){
+	 progress.style.width = currentprogress + '%';
+	 span.innerText = currentprogress + '%';
+	 currentprogress++;
+	}
+	else{
+	 clearInterval(interval);
+	}
+
+}
+
+
+</script>
+</body>
+</html>
