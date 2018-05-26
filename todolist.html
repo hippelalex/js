@@ -1,0 +1,97 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width; initial-scale=1;">
+	<!-- <link rel="stylesheet" href="css/all.css" type="text/css"/> -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<title>To do list</title>
+	<style>
+		.checked{
+			text-decoration: line-through;
+		}
+		li, i{
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+
+<ul id="todolist">
+	<li>First task</li>
+</ul>
+
+<form>
+	<input type="text" name="todoname" placeholder="Type your task">
+	<input type="submit" value="Save">
+</form>
+
+<script>
+//edit list item  <i class="fas fa-edit"></i>
+		//delete list item <i class="fas fa-trash-alt"></i>
+
+		var list = document.getElementById('todolist');
+		var input = document.getElementsByTagName('input')[0];
+		var button = document.getElementsByTagName('input')[1];
+
+		button.addEventListener('click', function(event){
+			saveToDo(event);
+		});
+
+		function saveToDo(e){
+			e.preventDefault();
+			var newtask = input.value;
+			var newli = document.createElement('li');
+			var inputE = document.createElement('input');
+			inputE.style.display = 'none';
+			newli.innerText = newtask;
+			newli.appendChild(addBtn('i', ['fas', 'fa-edit']));
+			newli.appendChild(addBtn('i', ['fas', 'fa-trash-alt']));
+			newli.appendChild(inputE);
+			list.appendChild(newli);
+
+			input.value = '';
+		}
+
+		function addBtn(tag, classlist){
+			var elem = document.createElement(tag);
+			for(var i = 0; i < classlist.length; i++){
+				elem.classList.add(classlist[i]);
+			}
+			return elem;
+		}
+
+		list.addEventListener('click', function(event){
+			if(event.target.tagName === 'LI'){
+				event.target.classList.toggle('checked');
+			}
+			else if(event.target.tagName === 'I' && event.target.classList.contains('fa-trash-alt')){
+				list.removeChild(event.target.parentNode);
+			}
+			else if(event.target.tagName === 'I' && event.target.classList.contains('fa-edit')){
+				editToDo(event.target.parentNode);
+			}
+		});
+		list.addEventListener('keyup', function(event){
+				if (event.keyCode == '13') {
+					finishEdit(event.target, event.target.parentNode);
+				}
+			});
+
+		function editToDo(todo){
+			var currentVal = todo.innerText;
+			var input = todo.getElementsByTagName('input')[0];
+			input.style.display = 'inline-block';
+			input.value = currentVal;
+		}
+
+		function finishEdit(inp, el){
+			inp.style.display = 'none';
+			el.innerText = inp.value;
+			el.appendChild(addBtn('i', ['fas', 'fa-edit']));
+			el.appendChild(addBtn('i', ['fas', 'fa-trash-alt']));
+		}
+</script>
+</body>
+</html>
