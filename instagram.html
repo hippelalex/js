@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="feed"></div>
+<script type="text/javascript">
+var feed = 'weather.json';
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', feed, true);
+xhr.send();
+
+xhr.onredystatechange = function(){
+  if (xhr.redyState) {
+    
+  }
+}
+
+  showWeather(JSON.parse(xhr.responseText))
+
+
+
+// var arr ="[1,2,3,4]";
+// arr = JSON.parse(arr);
+// console.log(arr);
+//
+// var event = {
+//   date: 'June3rd 2018',
+//   place: 'Warsaw',
+//   price: '$124'
+// }
+// var str = JSON.stringify(event);
+// console.log(str);
+
+
+</script>
+<style>
+    #feed{
+        display: flex;
+        flex-flow: row wrap;
+        align-items: space-between;
+        padding: 50px 100px;
+    }
+    .feed_item{
+      width: 24%
+    }
+</style>
+</body>
+</html>

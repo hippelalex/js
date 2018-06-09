@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html>
+        <head>
+            <title>Site title</title>
+            <meta charset="utf-8">
+            <meta name="keywords" content="key1 word">
+            <meta name="description" content="Site description">
+
+
+
+            <style>
+                .section{
+                    text-align: center;
+                    font-size: 40px;
+                    text-transform: uppercase;
+                    color: #fff;
+                }
+
+                .section:nth-last-of-type(1){
+                    background-color: hotpink;
+                }
+                .section:nth-last-of-type(2){
+                    background-color: deepskyblue;
+                }
+                .section:nth-last-of-type(3){
+                    background-color: tomato;
+                }
+                .section:nth-last-of-type(4){
+                    background-color: lightblue;
+                }
+
+                .footer{
+                    height: 400px;
+                    line-height: 400px;
+                    background-color: black;
+                }
+
+
+            </style>
+
+        </head>
+<body>
+<div id="fullpage">
+    <div class="section">Определённый раздел</div>
+    <div class="section">Определённый раздел</div>
+    <div class="section">Определённый раздел</div>
+    <div class="section">Определённый раздел</div>
+    <div class="section footer">Определённый раздел</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.js">
+</script>
+<script>
+    $(document).ready(function() {
+        $('#fullpage').fullpage({
+            anchors: ['home', 'about', 'portfolio', 'contact'],
+            responsiveWidth: 700,
+            scrollingSpeed: 700,
+            onLeave: function( anchorLink, index, slideIndex, direction, nextSlideIndex){
+                var leavingSlide = $(this);
+
+                //leaving the first slide of the 2nd Section to the right
+                if(index == 1){
+                    alert("Leaving the fist slide!!");
+                }
+
+                //leaving the 3rd slide of the 2nd Section to the left
+                if(index == 2 ){
+                    alert("Going to slide 2! ");
+                }
+            }
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>

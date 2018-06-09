@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Feed</title>
+	<style type="text/css">
+		section{
+			height: 1000px;
+		}
+		#footer{
+			height: 700px;
+		}
+		.slider{
+			height: 400px;
+			position: relative;
+		}
+		.slide{
+			width: 100%;
+			height: 100%;
+			color: #ffffff;
+			font-size: 40px;
+			text-align: center;
+			line-height: 400px;
+			text-transform: uppercase;
+			opacity: 0;
+			transition: opacity 0.5s ease-in-out;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.nav{
+			position: absolute;
+			bottom: 20px;
+			left: calc(50% - 80px);
+			list-style: none;
+			margin: 0;
+		}
+		.nav li{
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			border: 2px solid #ffffff;
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+
+		.nav li.active{
+			background-color: #ffffff;
+		}
+		.slide.active{
+			opacity: 1;
+		}
+		.slide:nth-child(1){
+			background-color: hotpink;
+		}
+		.slide:nth-child(2){
+			background-color: deepskyblue;
+		}
+		.slide:nth-child(3){
+			background-color: lightgreen;
+		}
+		.slide:nth-child(4){
+			background-color: lightgray;
+		}
+		.slide:nth-child(5){
+			background-color: darkblue;
+		}
+		.listitem{
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			padding: 10px 20px;
+		}
+		.selecteditem{
+			display: block;
+		}
+		#list ul{
+			list-style: none;
+		}
+		.select{
+			position: relative;
+		}
+		.select ul{
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 10;
+			background-color: #ffffff;
+			border-radius: 10px;
+			border: 1px solid #e2e2e2;
+		}
+		.select:hover ul{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="button">Click me!</div>
+
+	<a href="#footer" class="scroll">Scroll to footer</a>
+	<section>
+
+		<button>SortBy clients</button>
+		<div id="list"></div>
+
+
+
+		<div class="slider">
+			<div class="slide active"> slide1</div>
+			<div class="slide"> slide2</div>
+			<div class="slide"> slide3</div>
+			<div class="slide"> slide4</div>
+			<div class="slide"> slide5</div>
+			<ul class="nav">
+				<li data-num="0" class="navbtn active"></li>
+				<li data-num="1" class="navbtn"></li>
+				<li data-num="2" class="navbtn"></li>
+				<li data-num="3" class="navbtn"></li>
+				<li data-num="4" class="navbtn"></li>
+			</ul>
+		</div>
+
+	</section>
+	<div id="footer">footer</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+	<script>
+
+		var $list = $('#list');
+		var data = [
+			{
+				name: 'Company1',
+				options: [{optname: 'Standart', optprice: 1500}, {optname: 'Premium', optprice: 2500}],
+				clients: 1450
+			},
+			{
+				name: 'Company2',
+				options: [{optname: 'Lite', optprice: 500}, {optname: 'Standart', optprice: 1000}, {optname: 'Premium', optprice: 2000}],
+				clients: 3050
+			},
+			{
+				name: 'Company3',
+				options: [{optname: 'Lite', optprice: 900}, {optname: 'Standart', optprice: 1900}, {optname: 'Premium', optprice: 2800}],
+				clients: 550
+			}
+		];
+
+		function buildList(d){
+			for(var i = 0; i < d.length; i++){
+				var listitems = '';
+				for(var j = 0; j < d[i].options.length; j++){
+					listitems += '<li class="selectitem">' + d[i].options[j].optname + ' ' + d[i].options[j].optprice + '</li>';
+				}
+				var $listitem = '<div class="listitem"><h2>'+ d[i].name +
+				'</h2><div class="select"><span class="selecteditem">Select some item</span> <ul class="selectbox">'+ listitems
+				+'</ul></div> <h3 class="clientsnum">' + d[i].clients + '</h3></div>';
+
+				$list.append($listitem);
+			}
+		}
+
+		buildList(data);
+
+		$('.selectbox').on('click', 'li' , function(event){
+			$(this).parent().parent().find('.selecteditem').text($(this).text());
+		});
+
+		$('button').click(function(){
+			sortList();
+		});
+
+		function sortList(){
+			var listcopy = data;
+			listcopy.sort(function(a,b) {return (a.clients > b.clients) ? -1 : ((b.clients > a.clients) ? 1 : 0);});
+
+			$list.html(' ');
+			buildList(listcopy);
+		}
+
+
+
+
+
+		var slides = $('.slide');
+		var navs = $('.navbtn');
+		var currentSlide = 0;
+
+		$(navs).on('click', function(){
+			console.log($(this).attr('data-num'));
+			setSlide($(this).attr('data-num'));
+			clearInterval(interval);
+			interval = setInterval(function(){
+				setSlide(++currentSlide);
+			}, 2000);
+
+		});
+
+		var interval = setInterval(function(){
+			setSlide(++currentSlide);
+		}, 2000);
+
+		function setSlide(n){
+			currentSlide = (n < slides.length)? n : 0;
+
+			$(slides).each(function(){
+				$(this).removeClass('active');
+			});
+			$(navs).each(function(){
+				$(this).removeClass('active');
+			});
+			$(slides[currentSlide]).addClass('active');
+			$(navs[currentSlide]).addClass('active');
+		}
+
+
+
+
+
+		$(document).on('click', '.scroll', function(event){
+		    event.preventDefault();
+		    $('html, body').animate({
+		        scrollTop: $( $.attr(this, 'href') ).offset().top
+		    }, 1100);
+		});
+
+		var $btn = $('.button');
+		$btn.addClass('anotherclass');
+		$btn.click(function(){
+			$( this ).css({
+		      "background-color": "yellow",
+		      "font-weight": "bolder"
+		    });
+		});
+	</script>
+</body>
+</html>
