@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="main.css" type="text/css"/>
+</head>
+  <body>
+  <!--<div id="holder">-->
+    <!--<div class="ball"></div>-->
+    <!--<div class="ball"></div>-->
+    <!--<div class="ball"></div>-->
+    <!--<div class="ball"></div>-->
+    <!--<div class="ball"></div>-->
+    <!--<div class="ball"></div>-->
+    <!--<div class="ball"></div>-->
+  <!--</div>-->
+
+  <div id="circle">hover me</div>
+
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js"></script>-->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/easing/EasePack.min.js"></script>-->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+
+
+  <script>
+      var circle = document.getElementById('circle');
+      TweenMax.set(circle, {rotation: 0, x:0, y:0})
+      var tween = TweenLite.to(circle, 1.5, {rotationZ:360, repeat:-1,ease:Strong.easeOut})
+
+      // let holder = document.getElementById('holder');
+      // let holderOffset = holder.getBoundingClientRect().top;
+      // console.log(holderOffset);
+      // window.onscroll = function(){
+      //     let scrolled = window.pageYOffset || document.documentElement.scrollTop;
+      //     if(scrolled > holderOffset - 390){
+      //         holder.classList.add('animating');
+      //     }
+      // }
+  </script>
+
+
+  </body>
+
+</html>
+
+
+
+
