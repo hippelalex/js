@@ -33,6 +33,5 @@
 #controls-btn{
     display: block;
     position: relative;
-    float: right;
-    margin: -200px 50px auto;
+    margin: 20px auto;
 }

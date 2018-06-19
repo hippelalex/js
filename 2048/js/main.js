@@ -4,6 +4,7 @@
 let arr = document.getElementsByClassName('block');
 console.log(arr);
 
+
 document.getElementById('game-container').onclick = function(event) {
     console.log(event);
     if (event.target.className == 'block'){
@@ -14,14 +15,18 @@ document.getElementById('game-container').onclick = function(event) {
 
 }
 
-let datablock = document.getElementById('game-container').innerHTML;
-console.log(datablock);
 
 //Rendom function
+document.getElementById('btn-restart').onclick = function(rendom) {
 
+
+
+
+}
 
 
 //Move function
+
 
 
 
