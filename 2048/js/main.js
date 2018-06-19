@@ -1,26 +1,33 @@
 
 //get array of elements
 
-let arr = document.getElementsByClassName('block');
-console.log(arr);
+let blocks = document.getElementsByClassName('block');
+// console.log(arr);
+blocks = Array.prototype.slice.call(blocks);
+console.log(blocks);
+blocks.forEach(function(block) {
+    console.log(block.innerHTML);
+});
+
+let reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+console.log(blocks.reduce(reducer));
+
+console.log(blocks.reduce(reducer, 15));
+
+//Rendom function
+// document.getElementById('btn-restart').onclick = function(rendom) {
+
+//}
 
 
 document.getElementById('game-container').onclick = function(event) {
     console.log(event);
     if (event.target.className == 'block'){
 
-            event.target.innerHTML = 2;
+        event.target.innerHTML = 2;
 
-        }
-
-}
-
-
-//Rendom function
-document.getElementById('btn-restart').onclick = function(rendom) {
-
-
-
+    }
 
 }
 
